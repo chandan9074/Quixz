@@ -4,6 +4,9 @@ import {
   Redirect
 } from "react-router-dom";
 
+// importing components 
+import Signup from './signup';
+
 class Login extends Component {
     state = {
         token : "",
@@ -51,8 +54,13 @@ class Login extends Component {
                 <section>
                     <input type="text" id="username" />
                     <input type="password" id="password"/>
-                    <button onClick={this.handleLogin}>Login</button>
+                    <button onClick={this.handleLogin}>Login</button><br /><br />
                 </section>}
+                
+                {/* calling signup part */}
+                
+                <Signup/>
+
             </main>
         );
     }
