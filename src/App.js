@@ -1,11 +1,15 @@
-import './App.css';
+// import pakages
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+import { Provider } from "react-redux";
+
 
 // importing component 
+import './App.css';
+import { store } from "./redux/store";
 import Home from './components/home pages/home';
 import Dashboard from './components/dashboard page/dashboard';
 
@@ -14,12 +18,14 @@ function App() {
     // <div className="App">
     //   <Home />
     // </div>
-    <Router>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/dashboard/:str" exact component={Dashboard} />
-      </Switch>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/dashboard/:str" exact component={Dashboard} />
+        </Switch>
+      </Router>
+    </Provider>
   );
 }
 
