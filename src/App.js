@@ -12,6 +12,7 @@ import './App.css';
 import { store } from "./redux/store";
 import Home from './components/home pages/home';
 import Dashboard from './components/dashboard page/dashboard';
+// import Sidebar from "./othersComponents/sidebar/sidebar";
 
 function App() {
   return (

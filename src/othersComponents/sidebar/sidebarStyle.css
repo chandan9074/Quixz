@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navigation {
+  min-height: 95vh;
+  background-color: blueviolet;
+  width: 6.5%;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  border-radius: 0.7rem;
+  overflow: hidden;
+  transition: width 0.5s;
+}
+.navigation.active {
+  width: 15%;
+}
+.navigation ul li b:nth-child(1) {
+  position: absolute;
+  top: -20px;
+  height: 20px;
+  width: 100%;
+  background: white;
+  display: none;
+}
+.navigation ul li b:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-bottom-right-radius: 2rem;
+  background: blueviolet;
+}
+.navigation ul li b:nth-child(2) {
+  position: absolute;
+  bottom: -20px;
+  height: 20px;
+  width: 100%;
+  background: white;
+  display: none;
+}
+.navigation ul li b:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 2rem;
+  background: blueviolet;
+}
+.navigation ul li.active b:nth-child(1),
+.navigation ul li.active b:nth-child(2) {
+  display: block;
+}
+nav ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 1rem;
+  padding-top: 2rem;
+}
+nav ul li {
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+nav ul li.active {
+  background-color: white;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+nav ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: aliceblue;
+}
+
+nav ul li.active a {
+  color: rgb(32, 49, 80);
+}
+
+nav ul li a .fas {
+  position: relative;
+  display: block;
+  min-width: 4rem;
+  line-height: 4rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.btn-title {
+  display: block;
+  position: relative;
+  line-height: 4rem;
+  height: 4rem;
+  white-space: normal;
+  padding-left: 1.3rem;
+}
+.toggle {
+  position: fixed;
+  top: 1.3rem;
+  left: 8rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: cornflowerblue;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: left 0.5s;
+}
+.toggle .fas {
+  position: absolute;
+  color: aliceblue;
+  font-size: 1.8rem;
+  display: none;
+}
+.toggle .open {
+  display: block;
+}
+.toggle.active .open {
+  display: none;
+}
+.toggle.active .close {
+  display: block;
+}
+.toggle.active {
+  background: rgb(236, 105, 57);
+  left: 16rem;
+}
