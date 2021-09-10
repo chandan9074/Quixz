@@ -3,17 +3,17 @@ import { Login_User } from "./homepageType";
 
 // create initialstate
 const initialstate = {
-    token: ""
+    user: null
 }
 
 // create reducer
 export const userLoginTokenReducer = (state = initialstate, action) =>{
     switch(action.type){
         case Login_User:
-            return{
-                ...state, 
-                token: action.payload
-            }
-        default: return state
+            return{ 
+                ...state,  
+                user: action.payload  
+            }                         
+        default: return state     
     }
 }

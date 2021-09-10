@@ -9,13 +9,14 @@ import { useSelector, useDispatch } from 'react-redux';
 // importing components 
 import Signup from './signup';
 import { login_user } from '../../redux';
+import coreAxios from '../../axios';
 
 const Login = () => {
 
     const [isLogin, setIslogin] = useState(false);
     const [incorrect, setIncorrect] = useState(false);
 
-    const token = useSelector(state=>state.userLoginTokenReducer.token);
+    const token = useSelector(state=>state.userLoginTokenReducer.user);
     const dispatch = useDispatch();
 
     // handle login part in the system 
@@ -34,9 +35,9 @@ const Login = () => {
                 headers: { 'Content-Type': 'application/json' }
             }
             const ac = new AbortController();
-            axios.post('http://127.0.0.1:8000/accounts/login/', loginData, config).then(response=> {
+            coreAxios.post('/accounts/login/', loginData, config).then(response=> {
                 if(response.status===200){
-
+                    localStorage.setItem("token", response.data.token)
                     dispatch(login_user(response.data))
                     setIslogin(true);
                     setIncorrect(false);
@@ -55,7 +56,7 @@ const Login = () => {
             {isLogin? 
             // redirect to dasboard when user is login succesfully
             // <Redirect to={{pathname:`/dashboard/${this.state.token.username}`, state:{token:this.state.token}}} />:
-            <Redirect to={{pathname:`/dashboard/${token.username}`}} />:
+            <Redirect to={{pathname:'/dashboard/'}} />:
             // login form part 
             <section>
                 <input type="text" id="username" />
